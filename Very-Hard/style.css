@@ -1,0 +1,145 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #C9FEDA;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 4rem;
+    color: white;
+    text-align: center;
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+}
+
+main {
+    position: absolute;
+    top: 25%;
+    transform: translate(-50%);
+    left: 50%;
+    display: grid;
+    grid-template-columns: 65fr 35fr;
+    height: 50vh;
+    width: 50vw;
+}
+
+.section-column:nth-child(odd) {
+    background-color: white;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+}
+
+.section-column:nth-child(even) {
+    background-color: #383838;
+    border-bottom-right-radius: 25px;
+    border-top-right-radius: 30px;
+}
+
+.section-form {
+    padding: 3rem;
+    padding-bottom: 0;
+}
+
+.section-form__label {
+    display: block;
+    color: black;
+    font-size: 1.3rem;
+    text-align: left;
+    margin-bottom: 1rem;
+}
+
+.section-form__input {
+    display: block;
+    color: black;
+    width: 100%;
+    height: 2rem;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: rgba(128, 128, 128, 0.473) solid 1px;
+    margin-bottom: 2rem;
+}
+
+.section-form__input:focus,
+.section-form__input:visited {
+    outline: none;
+}
+
+#calculate {
+    padding: 0.7rem 2rem;
+    font-size: 1rem;
+    border: solid 1px transparent;
+    border-radius: 25px;
+    transition: all 0.3s;
+    background-color: #4FE782;
+    color: white;
+}
+
+#calculate:hover {
+    cursor: pointer;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,.2);
+}
+
+#calculate:active {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 10px rgba(0,0,0,.2);
+}
+
+#calculate:focus {
+    outline: none;
+}
+
+#calculateTitle {
+    font-size: 1.5rem;
+    padding: 1rem;
+    text-align: left;
+    background-color: #4FE782;
+    border-top-right-radius: 25px;
+    font-weight: 800;
+}
+
+#button-container {
+    display: grid;
+}
+
+#background {
+    clip-path: polygon(0 0, 0 100%, 100% 100%, 0 0);
+    background-color: #4FE782;
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.button-containter {
+    display: flex;
+    grid-template-columns: 25fr 25fr 25fr 25fr;
+    justify-content: space-between;
+    padding: 0 3rem;
+    transition: all 0.3s;
+}
+
+.operator-button {
+    text-align: center;
+    background-color: transparent;
+    border: none;
+}
+
+.operator-button:hover {
+    cursor: pointer;
+}
+
+.operator-button:active,
+.operator-button:focus {
+    outline: none;
+}
+
+.operator-button__icon {
+    color: #4FE782;
+    font-size: 3rem;
+}
