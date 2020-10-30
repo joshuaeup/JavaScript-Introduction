@@ -9,36 +9,41 @@ var multiplyIcon = document.getElementById("multiply");
 var divideIcon = document.getElementById("divide");
 
 function calculate() {
-    var numOne = parseFloat(document.getElementById("numOne").value);
-    var numTwo = parseFloat(document.getElementById("numTwo").value);
-
-    
+    var numOne = +document.getElementById("numOne").value;
+    var numTwo = +document.getElementById("numTwo").value;
+    if (Number.isNaN(numOne) || Number.isNaN(numTwo) || numOne === 0 || numTwo === 0) { 
+        console.log("Please enter a valid number");
+        return;
+    }
     
 
     switch(operator) {
         case "+":
-            
+            const addValue = add(numOne, numTwo).toFixed(2);
             // If operator is add then call add function
-            console.log(numOne + " " + operator + " " + numTwo + " = " +  add(numOne, numTwo).toFixed(2));
-            document.getElementById("calculateSubTitle").innerHTML = add(numOne, numTwo).toFixed(2);
+            console.log(numOne + " " + operator + " " + numTwo + " = " + addValue);
+            document.getElementById("calculateSubTitle").innerHTML = addValue;
             break;
             
         case "-":
+            const subtractValue = subtract(numOne, numTwo).toFixed(2);
             // If operator is subtract then call subtract function
-            console.log(numOne + " " + operator + " " + numTwo + " = " + subtract(numOne, numTwo).toFixed(2));
-            document.getElementById("calculateSubTitle").innerHTML = subtract(numOne, numTwo).toFixed(2);
+            console.log(numOne + " " + operator + " " + numTwo + " = " + subtractValue);
+            document.getElementById("calculateSubTitle").innerHTML = subtractValue;
             break;
     
         case "*":
+            const multiplyValue = multiply(numOne, numTwo).toFixed(2);
             // If operator is multiply then call add multiply
-            console.log(numOne + " " + operator + " " + numTwo + " = " + multiply(numOne, numTwo).toFixed(2));
-            document.getElementById("calculateSubTitle").innerHTML = multiply(numOne, numTwo).toFixed(2);
+            console.log(numOne + " " + operator + " " + numTwo + " = " + multiplyValue);
+            document.getElementById("calculateSubTitle").innerHTML = multiplyValue;
             break;
             
         case "/":
+            const divideValue = divide(numOne, numTwo).toFixed(2);
             // If operator is divide then call divide function
-            console.log(numOne + " " + operator + " " + numTwo + " = " + divide(numOne, numTwo).toFixed(2));
-            document.getElementById("calculateSubTitle").innerHTML = divide(numOne, numTwo).toFixed(2);
+            console.log(numOne + " " + operator + " " + numTwo + " = " + divideValue);
+            document.getElementById("calculateSubTitle").innerHTML = divideValue;
             break;
     
         default:
@@ -47,35 +52,33 @@ function calculate() {
 }
 
 function addOperator() {
-    addIcon.style.color = "#EF8441";
-    subtractIcon.style.color = "#4FE782";
-    multiplyIcon.style.color = "#4FE782";
-    divideIcon.style.color = "#4FE782";
+    setOperatorState("+");
     operator = "+";
 }
 
 function subtractOperator() {
-    addIcon.style.color = "#4FE782";
-    subtractIcon.style.color = "#EF8441";
-    multiplyIcon.style.color = "#4FE782";
-    divideIcon.style.color = "#4FE782";
+    setOperatorState("-");
     operator = "-";
 }
 
 function multiplyOperator() {
-    addIcon.style.color = "#4FE782";
-    subtractIcon.style.color = "#4FE782";
-    multiplyIcon.style.color = "#EF8441";
-    divideIcon.style.color = "#4FE782";
+    setOperatorState("*");
     operator = "*";
 }
 
 function divideOperator() {
-    addIcon.style.color = "#4FE782";
-    subtractIcon.style.color = "#4FE782";
-    multiplyIcon.style.color = "#4FE782";
-    divideIcon.style.color = "#EF8441";
+    setOperatorState("/");
     operator = "/";
+}
+
+
+function setOperatorState(o) {
+    const activeColor = "#EF8441";
+    const inactiveColor = "#4FE782";
+    addIcon.style.color = o === '+' ? activeColor : inactiveColor;
+    subtractIcon.style.color = o === '-' ? activeColor : inactiveColor;
+    multiplyIcon.style.color = o === '*' ? activeColor : inactiveColor;
+    divideIcon.style.color = o === '/' ? activeColor : inactiveColor;
 }
 
 

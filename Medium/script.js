@@ -1,6 +1,5 @@
 var userResponse = prompt("Type anything that is on your mind!");
-// function called and takes response as param
-checkStatus(userResponse);
+
 
 function checkStatus(str) {
     // checks if the user input is uppercase, lowercase, or a combination 
@@ -12,3 +11,7 @@ function checkStatus(str) {
         console.log("Great! Talking normally");
     }
 }
+
+
+// function called and takes response as param
+checkStatus(userResponse);
